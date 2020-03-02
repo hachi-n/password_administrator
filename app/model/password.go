@@ -2,7 +2,7 @@ package model
 
 import (
 	"fmt"
-	"github.com/hachi-n/passwd_gen/lib/config"
+	"github.com/hachi-n/passwd_gen/cli"
 	randp "github.com/hachi-n/passwd_gen/lib/random_password"
 	"log"
 	"strconv"
@@ -30,9 +30,9 @@ func NewPassword(serviceName, categoryName string) *Password {
 	password.ServiceID = service.ID
 	password.CategoryID = category.ID
 	password.Password = randp.GeneratePassword(
-		config.Config.Length,
-		config.Config.NumberLength,
-		config.Config.SymbolLength,
+		cli.Option.Length,
+		cli.Option.NumberLength,
+		cli.Option.SymbolLength,
 	)
 
 	return password
